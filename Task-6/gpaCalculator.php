@@ -1,7 +1,7 @@
 <form action="gpaCalculator.php" method="get">
     <h3>GPA Calculator</h3>
     <label for="">Enter Your GPA:</label><br />
-    <input type="text" name="gpa" id="gpa" required><br />
+    <input type="text" name="gpa" id="gpa" placeholder="Enter Your GPA" required><br />
     <p>Select Your Education Level:</p>
     <select name="educationLevel" id="educationLevel" required>
         <option value="">--Select--</option>
@@ -25,7 +25,7 @@ include_once("graduationLevel.php");
 if (isset($_GET['submit'])) {
     $gpa = $_GET['gpa'];
     $educationLevel = $_GET['educationLevel'];
-    if (!empty(filter_var($gpa, FILTER_VALIDATE_FLOAT)) && !empty($educationLevel) && ($gpa >= 0.0 && $gpa <= 5.0)) {
+    if ((empty(filter_var($gpa, FILTER_VALIDATE_FLOAT)) || !empty(filter_var($gpa, FILTER_VALIDATE_FLOAT))) && !empty($educationLevel) && ($gpa >= 0.0 && $gpa <= 5.0)) {
         if ($educationLevel == 'jsc' || $educationLevel == 'ssc' || $educationLevel == 'hsc') {
             calculateSchoolGpa($gpa);
         } elseif (($educationLevel == 'graduation' || $educationLevel == 'masters')) {
