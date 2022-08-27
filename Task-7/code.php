@@ -2,6 +2,7 @@
 session_start();
 include_once "connectdb.php";
 
+// Delete Student
 if (isset($_POST['delete_student'])) {
     $stdId = $_POST['sId'];
 
@@ -26,6 +27,7 @@ if (isset($_POST['delete_student'])) {
     }
 }
 
+// Update Student
 if (isset($_POST['update_student'])) {
     $stdId = $_POST['sId'];
     $firstName = $_POST['firstName'];
@@ -61,6 +63,7 @@ if (isset($_POST['update_student'])) {
     }
 }
 
+// Add Student
 if (isset($_POST['save_student'])) {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
